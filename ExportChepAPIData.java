@@ -27,8 +27,7 @@ public class ExportChepAPIData {
 
 	private static Logger exportLogger = null;
 	private static int logLevel = 8;
-	private static String logDir = "\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "logs" + File.separatorChar + "chep";
-
+	private static String logDir = ********
 	public static void main(String[] args) 
 	{	    	
 	    try {
@@ -91,7 +90,7 @@ public class ExportChepAPIData {
 		exportLogger.log(1,"AUTHENTICATION START*************");
 
 		String last=null, line;
-		BufferedReader csvReader = new BufferedReader(new FileReader("\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "edi" + File.separatorChar + "fcc" + File.separatorChar + "out" + File.separatorChar + "chep" + File.separatorChar + "inprocess" + File.separatorChar + "authentication.txt"));
+		BufferedReader csvReader = new BufferedReader(new FileReader(********;
 		while ((line = csvReader.readLine()) != null) 
 		{
 			if(line!=null)
@@ -113,11 +112,11 @@ public class ExportChepAPIData {
 
 		else {
 
-			String urlString = "https://cma-api-dev-ng.azurewebsites.net/shipment_tracking_rest/api/authenticate/mobile";
+			String urlString = "********";
 			StringBuilder data = new StringBuilder();
 
-			data.append("{\"password\": \"12345\",");
-			data.append("\"username\": \"driver@fccinc.com\"}");
+			data.append("{\"password\": \"********\",");
+			data.append("\"username\": \"********\"}");
 
 			exportLogger.log(8,"Credentials: " + data.toString());
 
@@ -158,7 +157,7 @@ public class ExportChepAPIData {
 			String expiration_date3 = cal.getTime().toString();
 			exportLogger.log(8,"Expiration Date of Token = " + expiration_date3);
 
-			FileWriter csvWriter = new FileWriter("\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "edi" + File.separatorChar + "fcc" + File.separatorChar + "out" + File.separatorChar + "chep" + File.separatorChar + "inprocess" + File.separatorChar + "authentication.txt", true);
+			FileWriter csvWriter = new FileWriter(********", true);
 			csvWriter.append(token);
 			csvWriter.append(",");
 			csvWriter.append(now);
@@ -177,7 +176,7 @@ public class ExportChepAPIData {
 	//	chepAPI
 	protected static void chepFunction() throws IOException, ParseException
 	{			
-		String filename= "\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "edi" + File.separatorChar + "fcc" + File.separatorChar + "out" + File.separatorChar + "chep" + File.separatorChar;
+		String filename= "********";
 
 		File dir = new File(filename);
 		if(!dir.isDirectory()) throw new IllegalStateException("There is an error in the chepAPI function");
@@ -253,7 +252,7 @@ public class ExportChepAPIData {
 							String statuses="";
 							String longitude = "";
 							String latitude = "";
-							String urlString = "https://cma-api-dev-ng.azurewebsites.net/shipment_tracking_rest/api/trips";
+							String urlString = "********";
 
 							StringBuilder tmpBuff = new StringBuilder();
 
@@ -396,7 +395,7 @@ public class ExportChepAPIData {
 							Calendar cal = Calendar.getInstance();
 							String now = cal.getTime().toString();
 
-							FileWriter csvWriter = new FileWriter("\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "edi" + File.separatorChar + "fcc" + File.separatorChar + "out" + File.separatorChar + "chep" + File.separatorChar + "inprocess" + File.separatorChar + "tripids.txt", true);
+							FileWriter csvWriter = new FileWriter("********", true);
 
 							csvWriter.append(loadid);
 							csvWriter.append(",");
@@ -410,7 +409,7 @@ public class ExportChepAPIData {
 
 							exportLogger.log(1,"CREATE_ORIGIN_PING: START*************");
 
-							String urlString2 = "https://cma-api-dev-ng.azurewebsites.net/shipment_tracking_rest/api/trips/pings";
+							String urlString2 = "********";
 
 							StringBuilder tmpBuff2 = new StringBuilder();
 
@@ -480,7 +479,7 @@ public class ExportChepAPIData {
 							String statuses="";
 							String longitude = "";
 							String latitude = "";
-							String urlString = "https://cma-api-dev-ng.azurewebsites.net/shipment_tracking_rest/api/trips/pings";
+							String urlString = "********";
 
 							StringBuilder tmpBuff = new StringBuilder();
 
@@ -599,7 +598,7 @@ public class ExportChepAPIData {
 							String eta = "";
 							StringBuilder tmpBuff2 = new StringBuilder();
 							BufferedReader in3 = null;
-							BufferedReader csvReader = new BufferedReader(new FileReader("\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "edi" + File.separatorChar + "fcc" + File.separatorChar + "out" + File.separatorChar + "chep" + File.separatorChar + "inprocess" + File.separatorChar + "tripids.txt"));
+							BufferedReader csvReader = new BufferedReader(new FileReader("********"));
 							String value2;
 
 							while((value2 = csvReader.readLine()) != null)
@@ -641,7 +640,7 @@ public class ExportChepAPIData {
 							br2.close();
 
 							exportLogger.log(8,"Trip_id from file: " + trip_id);
-							String urlString2 = "https://cma-api-dev-ng.azurewebsites.net/shipment_tracking_rest/api/trips/" + trip_id + "/eta";
+							String urlString2 = "********";
 							exportLogger.log(8,urlString2);
 
 							tmpBuff2.append("{");
@@ -688,7 +687,7 @@ public class ExportChepAPIData {
 							String trip_id = "";
 							exportLogger.log(1,"CLOSE_TRIP: START*************");
 
-							BufferedReader csvReader = new BufferedReader(new FileReader("\\" + File.separatorChar + "frciprolme" + File.separatorChar + "d$" + File.separatorChar + "McLeod_1820" + File.separatorChar + "lme" + File.separatorChar + "edi" + File.separatorChar + "fcc" + File.separatorChar + "out" + File.separatorChar + "chep" + File.separatorChar + "inprocess" + File.separatorChar + "tripids.txt"));
+							BufferedReader csvReader = new BufferedReader(new FileReader("********"));
 							String value2;
 
 							while((value2 = csvReader.readLine()) != null)
@@ -702,7 +701,7 @@ public class ExportChepAPIData {
 							csvReader.close();
 							exportLogger.log(8,"Trip_id from file: " + trip_id);
 
-							String urlString = "https://cma-api-dev-ng.azurewebsites.net/shipment_tracking_rest/api/trips/" + trip_id + "/close";
+							String urlString = "********";
 
 							URL url = new URL(urlString);
 							HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
